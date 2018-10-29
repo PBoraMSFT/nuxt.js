@@ -24,9 +24,11 @@ steps:
   displayName: 'Build Nuxt'
 
 - script: |
-    yarn test:fixtures -w=2
-  displayName: 'Test: Build Fixtures'
+    yarn test -w=2
+  displayName: 'Run tests'
 
-- script: |
-    yarn test:unit -w=2
-  displayName: 'Test: Run unit tests'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/junit.xml' 
+  displayName: 'Publish test results to Azure Pipelines'

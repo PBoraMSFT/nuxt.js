@@ -43,5 +43,10 @@ module.exports = {
   moduleFileExtensions: [
     'js',
     'json'
+  ],
+  
+  reporters: [ 
+    'default',
+    'jest-junit'
   ]
 }
