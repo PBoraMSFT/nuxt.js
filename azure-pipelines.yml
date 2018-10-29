@@ -24,12 +24,13 @@ steps:
   displayName: 'Build Nuxt'
 
 - script: |
+        jest
         JEST_SUITE_NAME="Fixtures" JEST_JUNIT_OUTPUT="./junit1.xml" jest
         yarn test:fixtures -w=2
   displayName: 'Test: Build Fixtures'
 
 - script: |
-        JEST_SUITE_NAME="Unit" JEST_JUNIT_OUTPUT="./junit2.xml" jest
+        jest JEST_SUITE_NAME="Unit" JEST_JUNIT_OUTPUT="./junit2.xml"
         yarn test:unit -w=2
   displayName: 'Test: Run unit tests'
 
