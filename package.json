@@ -16,10 +16,10 @@
     "lint:app": "eslint-multiplexer eslint --ignore-path packages/app/template/.eslintignore 'test/fixtures/!(missing-plugin)/.nuxt!(-dev)/**' | eslint-multiplexer -b",
     "nuxt": "node -r esm ./packages/cli/bin/nuxt.js",
     "test": "yarn test:fixtures && yarn test:unit",
-    "test:fixtures": "jest test/fixtures --reporters=default --reporters=jest-junit",
-    "test:e2e": "jest -i test/e2e --reporters=default --reporters=jest-junit",
+    "test:fixtures": "jest test/fixtures --reporters=default --reporters=jest-junit JEST_JUNIT_OUTPUT=./fixtures-junit.xml",
+    "test:e2e": "jest -i test/e2e --reporters=default --reporters=jest-junit JEST_JUNIT_OUTPUT=./e2e-junit.xml",
     "test:lint": "yarn lint",
-    "test:unit": "jest test/unit --reporters=default --reporters=jest-junit",
+    "test:unit": "jest test/unit --reporters=default --reporters=jest-junit JEST_JUNIT_OUTPUT=./unit-junit.xml",
     "postinstall": "lerna link && node -r esm ./scripts/dev"
   },
   "devDependencies": {
